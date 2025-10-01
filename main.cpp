@@ -3,12 +3,15 @@
 #include "buyer.h"
 
 enum PrimaryPrompt{LOGIN, REGISTER, EXIT};
+enum RegisterPrompt{NEW_BUYER, NEW_SELLER, BACK};
 
 using namespace std;
 
 int main() {
     //create a loop prompt 
     PrimaryPrompt prompt = LOGIN;
+    RegisterPrompt registPrompt = NEW_BUYER;
+
     while (prompt != EXIT) {
         cout << "Select an option: " << endl;
         cout << "1. Login" << endl;
@@ -71,8 +74,47 @@ int main() {
                 10. Exit Program
                 **/
                 break;
+
             case REGISTER:
                 cout << "Register selected." << endl;
+                cout << "1. Create Buyer" << endl;
+                cout << "2. Create Seller" << endl;
+                cout << "3. Back to main menu" << endl;
+                cout << "Choose Action : "<< endl;
+                int action;
+                cin >> action;
+                registPrompt = static_cast<RegisterPrompt>(action - 1);
+                switch (registPrompt){
+                    case NEW_BUYER :
+                        string name, address, email;
+                        int id, phone;
+
+                        cout << "Please provide some information : \n" << endl;
+                        cout << "Name \t : ";
+                        cin >> name;
+                        cout << "ID \t : ";
+                        cin >> id;
+                        cout << "Home Address : ";
+                        cin >> address;
+                        cout << "Phone Number : ";
+                        cin >> phone;
+                        cout << "Email \t  : ";
+                        cin >> email;
+
+                        BankCustomer name;
+                        Buyer Buyer{.id=id, .name=name, name};
+                        name::BankCustomer.printinfo();
+                        break;
+
+                    
+
+                    case NEW_SELLER:break;
+
+                    case BACK:break;
+
+                    break;
+                }
+                
                 /* if register is selected then went throuhh registration process:
                 1. Create a new Buyer Account
                 Must provides: Name, Home Address, Phone number, Email
