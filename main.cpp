@@ -23,8 +23,24 @@ int main() {
         cin >> choice;
         prompt = static_cast<PrimaryPrompt>(choice - 1);
         switch (prompt) {
-            case LOGIN:
+            case LOGIN:{
                 cout << "Login selected." << endl;
+                string user;
+                int id;
+                cout <<"input username : ";
+                cin >> user;
+                cout << "input id : ";
+                cin >> id;
+
+                // if (seller sellername.id == id)
+                // {
+                //     cout << "you're detected as a seller" << endl;
+                // }
+                
+                // buyername{id, name};
+                //         seller sellername
+
+
                 /* if Login is selected, based on authority then provide options:
                 assume user is logged in as Buyer for now
                 1. Chek Account Status (will display if user is Buyer or Seller or both and linked banking account status)
@@ -76,8 +92,9 @@ int main() {
                 10. Exit Program
                 **/
                 break;
+            }
 
-            case REGISTER:
+            case REGISTER: {
                 cout << "==Register selected==" << endl;
                 cout << "1. Create Buyer" << endl;
                 cout << "2. Create Seller" << endl;
@@ -104,9 +121,7 @@ int main() {
                         cout << "Email \t  : ";
                         cin >> email;
 
-                        BankCustomer customer{id, name, 0.0};
-                        Buyer buyername{id, name, customer};
-
+                        Buyer buyername{id, name};
                         break;
                     }
                     
@@ -115,7 +130,6 @@ int main() {
                         string name, address, email;
                         int id, phone;
                         
-                        cout << "==Create Buyer Account selected==" << endl;
                         cout << "Please provide some information" << endl;
                         cout << "Name \t : ";
                         cin >> name;
@@ -128,10 +142,9 @@ int main() {
                         cout << "Email \t  : ";
                         cin >> email;
 
-                        BankCustomer customer{id, name, 0.0};
-                        Buyer buyername{id, name, customer};
+                        Buyer buyername{id, name};
                         seller sellername(buyername, 13136+id, name);
-                        break;                        
+                        break;
                     }
                     
                     case BACK:{
@@ -155,10 +168,12 @@ int main() {
                 Must provides: Store Name, Store Address, Store Phone number, Store Email
                 After finished immediately logged in as Buyer/Seller
                 */
-        }
-        cout << endl;
 
     //BankCustomer customer1(1, "Alice", 1000.0);
     //Buyer buyer1(1, customer1.getName(), customer1);
-    return 1;
+        }
+        cout << endl;
+    }
+
+    return 0;  // program selesai hanya jika prompt == EXIT
 }

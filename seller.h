@@ -26,6 +26,7 @@ public:
             Buyer::setId(buyer.getId());
         }
 
+
     virtual ~seller() = default;
 
     void addNewItem(int newId, const std::string& newName, int newQuantity, double newPrice) {
