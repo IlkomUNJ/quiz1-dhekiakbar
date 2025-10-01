@@ -1,6 +1,8 @@
 #include <iostream>
 #include "bank_customer.h"
 #include "buyer.h"
+#include "seller.h"
+
 
 enum PrimaryPrompt{LOGIN, REGISTER, EXIT};
 enum RegisterPrompt{NEW_BUYER, NEW_SELLER, BACK};
@@ -128,7 +130,7 @@ int main() {
 
                         BankCustomer customer{id, name, 0.0};
                         Buyer buyername{id, name, customer};
-                        seller buyername(buyername,id, name);
+                        seller sellername(buyername, 13136+id, name);
                         break;                        
                     }
                     

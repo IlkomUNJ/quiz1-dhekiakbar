@@ -4,7 +4,6 @@
 #include <cstddef>
 #include <string>
 #include "bank_customer.h"
-#include "seller.h"
 
 using namespace std;
 
