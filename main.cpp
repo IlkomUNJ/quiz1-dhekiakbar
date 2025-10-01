@@ -85,7 +85,7 @@ int main() {
                 cin >> action;
                 registPrompt = static_cast<RegisterPrompt>(action - 1);
                 switch (registPrompt){
-                    case NEW_BUYER :
+                    case NEW_BUYER : {
                         string name, address, email;
                         int id, phone;
 
@@ -101,18 +101,29 @@ int main() {
                         cout << "Email \t  : ";
                         cin >> email;
 
-                        BankCustomer name;
-                        Buyer Buyer{.id=id, .name=name, name};
-                        name::BankCustomer.printinfo();
+                        BankCustomer newName{id, name, 0.0};
+                        Buyer newBuyer{id, name, newName};
+
+                        break;
+                    }
+                    
+                    case NEW_SELLER:
+                        cout << "Create Seller Account selected." << endl;
+                        break;
+                    
+                    case BACK:{
+                        cout << "Back selected." << endl;
                         break;
 
+                    }
                     
+                    default:{
+                        cout << "Invalid option." << endl;
+                        break;
 
-                    case NEW_SELLER:break;
+                    }
+                    }
 
-                    case BACK:break;
-
-                    break;
                 }
                 
                 /* if register is selected then went throuhh registration process:
