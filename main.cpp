@@ -1,14 +1,19 @@
 #include <iostream>
 #include "bank_customer.h"
 #include "buyer.h"
+#include "seller.h"
+
 
 enum PrimaryPrompt{LOGIN, REGISTER, EXIT};
+enum RegisterPrompt{NEW_BUYER, NEW_SELLER, BACK};
 
 using namespace std;
 
 int main() {
     //create a loop prompt 
     PrimaryPrompt prompt = LOGIN;
+    RegisterPrompt registPrompt = NEW_BUYER;
+
     while (prompt != EXIT) {
         cout << "Select an option: " << endl;
         cout << "1. Login" << endl;
@@ -18,8 +23,24 @@ int main() {
         cin >> choice;
         prompt = static_cast<PrimaryPrompt>(choice - 1);
         switch (prompt) {
-            case LOGIN:
+            case LOGIN:{
                 cout << "Login selected." << endl;
+                string user;
+                int id;
+                cout <<"input username : ";
+                cin >> user;
+                cout << "input id : ";
+                cin >> id;
+
+                // if (seller sellername.id == id)
+                // {
+                //     cout << "you're detected as a seller" << endl;
+                // }
+                
+                // buyername{id, name};
+                //         seller sellername
+
+
                 /* if Login is selected, based on authority then provide options:
                 assume user is logged in as Buyer for now
                 1. Chek Account Status (will display if user is Buyer or Seller or both and linked banking account status)
@@ -71,8 +92,75 @@ int main() {
                 10. Exit Program
                 **/
                 break;
-            case REGISTER:
-                cout << "Register selected." << endl;
+            }
+
+            case REGISTER: {
+                cout << "==Register selected==" << endl;
+                cout << "1. Create Buyer" << endl;
+                cout << "2. Create Seller" << endl;
+                cout << "3. Back to main menu" << endl;
+                cout << "Choose Action : "<< endl;
+                int action;
+                cin >> action;
+                registPrompt = static_cast<RegisterPrompt>(action - 1);
+                switch (registPrompt){
+                    case NEW_BUYER : {
+                        string name, address, email;
+                        int id, phone;
+                        
+                        cout << "==Create Buyer Account selected==" << endl;
+                        cout << "Please provide some information" << endl;
+                        cout << "Name \t : ";
+                        cin >> name;
+                        cout << "ID \t : ";
+                        cin >> id;
+                        cout << "Home Address : ";
+                        cin >> address;
+                        cout << "Phone Number : ";
+                        cin >> phone;
+                        cout << "Email \t  : ";
+                        cin >> email;
+
+                        Buyer buyername{id, name};
+                        break;
+                    }
+                    
+                    case NEW_SELLER:{
+                        cout << "Create Seller Account selected." << endl;
+                        string name, address, email;
+                        int id, phone;
+                        
+                        cout << "Please provide some information" << endl;
+                        cout << "Name \t : ";
+                        cin >> name;
+                        cout << "ID \t : ";
+                        cin >> id;
+                        cout << "Home Address : ";
+                        cin >> address;
+                        cout << "Phone Number : ";
+                        cin >> phone;
+                        cout << "Email \t  : ";
+                        cin >> email;
+
+                        Buyer buyername{id, name};
+                        seller sellername(buyername, 13136+id, name);
+                        break;
+                    }
+                    
+                    case BACK:{
+                        cout << "Back selected." << endl;
+                        break;
+
+                    }
+                    
+                    default:{
+                        cout << "Invalid option." << endl;
+                        break;
+
+                    }
+                }
+            }
+                
                 /* if register is selected then went throuhh registration process:
                 1. Create a new Buyer Account
                 Must provides: Name, Home Address, Phone number, Email
@@ -80,18 +168,12 @@ int main() {
                 Must provides: Store Name, Store Address, Store Phone number, Store Email
                 After finished immediately logged in as Buyer/Seller
                 */
-                break;
-            case EXIT:
-                cout << "Exiting." << std::endl;
-                break;
-            default:
-                cout << "Invalid option." << endl;
-                break;
+
+    //BankCustomer customer1(1, "Alice", 1000.0);
+    //Buyer buyer1(1, customer1.getName(), customer1);
         }
         cout << endl;
     }
 
-    //BankCustomer customer1(1, "Alice", 1000.0);
-    //Buyer buyer1(1, customer1.getName(), customer1);
-    return 1;
+    return 0;  // program selesai hanya jika prompt == EXIT
 }

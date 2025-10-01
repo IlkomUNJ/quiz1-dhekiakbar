@@ -11,18 +11,23 @@ class Buyer {
 private:
     int id;
     string name;
-    BankCustomer &account; // Association with BankCustomer
+    BankCustomer* account;
 
 public:
-    Buyer(int id, const string& name, BankCustomer &account0)
+    Buyer(int id, const string& name) 
+        : id(id), name(name), account(nullptr) {}
+
+    Buyer(int id, const string& name, BankCustomer* account0) 
         : id(id), name(name), account(account0) {}
 
     int getId() const { return id; }
     string getName() const { return name; }
-    BankCustomer& getAccount() { return account; }
+    BankCustomer* getAccount() { return account; }
 
     void setId(int newId) { id = newId; }
     void setName(const std::string& newName) { name = newName; }
+    void setAccount(BankCustomer* acc) { account = acc; }
 };
 
-#endif // BUYER_H
+
+#endif //BUYER_H
