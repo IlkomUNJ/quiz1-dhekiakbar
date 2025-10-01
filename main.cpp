@@ -110,6 +110,25 @@ int main() {
                     
                     case NEW_SELLER:{
                         cout << "Create Seller Account selected." << endl;
+                        string name, address, email;
+                        int id, phone;
+                        
+                        cout << "==Create Buyer Account selected==" << endl;
+                        cout << "Please provide some information" << endl;
+                        cout << "Name \t : ";
+                        cin >> name;
+                        cout << "ID \t : ";
+                        cin >> id;
+                        cout << "Home Address : ";
+                        cin >> address;
+                        cout << "Phone Number : ";
+                        cin >> phone;
+                        cout << "Email \t  : ";
+                        cin >> email;
+
+                        BankCustomer customer{id, name, 0.0};
+                        Buyer buyername{id, name, customer};
+                        seller buyername(buyername,id, name);
                         break;                        
                     }
                     
