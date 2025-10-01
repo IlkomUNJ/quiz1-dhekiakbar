@@ -76,7 +76,7 @@ int main() {
                 break;
 
             case REGISTER:
-                cout << "Register selected." << endl;
+                cout << "==Register selected==" << endl;
                 cout << "1. Create Buyer" << endl;
                 cout << "2. Create Seller" << endl;
                 cout << "3. Back to main menu" << endl;
@@ -88,8 +88,9 @@ int main() {
                     case NEW_BUYER : {
                         string name, address, email;
                         int id, phone;
-
-                        cout << "Please provide some information : \n" << endl;
+                        
+                        cout << "==Create Buyer Account selected==" << endl;
+                        cout << "Please provide some information" << endl;
                         cout << "Name \t : ";
                         cin >> name;
                         cout << "ID \t : ";
@@ -101,15 +102,16 @@ int main() {
                         cout << "Email \t  : ";
                         cin >> email;
 
-                        BankCustomer newName{id, name, 0.0};
-                        Buyer newBuyer{id, name, newName};
+                        BankCustomer customer{id, name, 0.0};
+                        Buyer buyername{id, name, customer};
 
                         break;
                     }
                     
-                    case NEW_SELLER:
+                    case NEW_SELLER:{
                         cout << "Create Seller Account selected." << endl;
-                        break;
+                        break;                        
+                    }
                     
                     case BACK:{
                         cout << "Back selected." << endl;
@@ -122,9 +124,8 @@ int main() {
                         break;
 
                     }
-                    }
-
                 }
+            }
                 
                 /* if register is selected then went throuhh registration process:
                 1. Create a new Buyer Account
@@ -133,16 +134,8 @@ int main() {
                 Must provides: Store Name, Store Address, Store Phone number, Store Email
                 After finished immediately logged in as Buyer/Seller
                 */
-                break;
-            case EXIT:
-                cout << "Exiting." << std::endl;
-                break;
-            default:
-                cout << "Invalid option." << endl;
-                break;
         }
         cout << endl;
-    }
 
     //BankCustomer customer1(1, "Alice", 1000.0);
     //Buyer buyer1(1, customer1.getName(), customer1);
